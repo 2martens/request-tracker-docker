@@ -1,5 +1,5 @@
 FROM darkpixel/request-tracker-docker-base:0.8.7
-LABEL maintainer="Aaron C. de Bruyn <aaron@heyaaron.com>"
+LABEL maintainer="Jim Martens <github@2martens.de>"
 
 WORKDIR /opt/src
 RUN curl -sLS "https://download.bestpractical.com/pub/rt/release/rt-4.4.4.tar.gz" | tar --strip-components=1 -xvzf - \
@@ -28,6 +28,8 @@ COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 COPY msmtp-sendmail.sh /usr/local/bin/msmtp-sendmail.sh
 
 WORKDIR /opt/rt4
+
+RUN sed -i s/Anzahl\(/quant\(/ share/po/de.po
 
 EXPOSE 80
 ENTRYPOINT ["/sbin/tini", "--", "/usr/local/bin/entrypoint.sh"]

@@ -5,7 +5,7 @@ envsubst '\$DATABASE_NAME \$DATABASE_HOST \$DATABASE_USER \$DATABASE_PASSWORD \$
 
 envsubst '\$MAIL_HOST \$MAIL_PORT \$MAIL_USER \$MAIL_PASS \$CORRESPOND_ADDRESS' < /tmp/msmtprc > /etc/msmtprc
 
-envsubst '\$WEB_BASE_URL \$MAIL_FETCH_LOGIN \$MAIL_FETCH_PASSWORD \$MAIL_FETCH_FOLDER \$MAIL_FETCH_COMMENT_FOLDER \$OWNER_EMAIL' < /tmp/fetchmailrc > /etc/fetchmailrc
+envsubst '\$WEB_BASE_URL \$MAIL_HOST \$MAIL_FETCH_LOGIN \$MAIL_FETCH_PASSWORD \$MAIL_FETCH_FOLDER \$MAIL_FETCH_COMMENT_FOLDER \$OWNER_EMAIL' < /tmp/fetchmailrc > /etc/fetchmailrc
 
 case ${1} in
 '--web'*)
